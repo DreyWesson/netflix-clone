@@ -1,3 +1,4 @@
+import axios from "./axios";
 const { REACT_APP_APIKEY } = process.env;
 
 const requests = {
@@ -10,5 +11,7 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${REACT_APP_APIKEY}&with_genres=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${REACT_APP_APIKEY}&with_genres=99`,
 };
-
+export async function fetchData(key, fetchParam) {
+  return await axios.get(fetchParam);
+}
 export default requests;

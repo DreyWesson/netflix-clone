@@ -1,5 +1,5 @@
 {
-  "name": "instagram-reels",
+  "name": "Netflix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +14,8 @@
     "movie-trailer": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-query": "^2.26.3",
+    "react-query-devtools": "^2.6.3",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",

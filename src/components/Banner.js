@@ -1,29 +1,30 @@
 import "./Banner.css";
-import axios from "../axios";
-
 import React, { useEffect, useState } from "react";
-import requests from "../requests";
+import requests, { fetchData } from "../requests";
+import { useQuery } from "react-query";
+import { truncate } from "../utils";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+  const { fetchNetflixOriginals } = requests;
 
+  // useQuery implementation for asynchronous data
+  const { data, status } = useQuery(
+    ["fetchData", fetchNetflixOriginals],
+    fetchData,
+    { staleTime: 24 * 60 * 60 }
+  );
+
+  console.log("FETCH DATA STATUS 👉 ", status);
+  console.log("FETCH DATA 👉 ", data);
+
+  useEffect(
+    () =>
       setMovie(
-        request.data.results[
-          (Math.random() * request.data.results.length - 1) | 0
-        ]
-      );
-      return request;
-    }
-    fetchData();
-  }, []);
-  console.log(movie);
-
-  function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-  }
+        data?.data.results[(Math.random() * data.data.results.length - 1) | 0]
+      ),
+    [data]
+  );
 
   return (
     <header
