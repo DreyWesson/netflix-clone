@@ -24,8 +24,8 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     staleTime: 24 * 60 * 60,
   });
 
-  console.log(`Fetch ${fetchUrl} URL STATUS 👉 , ${status}`);
-  console.log("Fetch URL 👉 ", data);
+  console.log(`Fetch URL STATUS 👉 , ${status}`);
+  // console.log("Fetch URL 👉 ", data);
   useEffect(() => setMovies(data?.data.results), [data]);
   useEffect(() => {
     setOpts({
@@ -67,7 +67,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         });
     }
   };
-  console.log(trailerUrl);
+
   return (
     <div className="row">
       <h2 className="row__title">{title}</h2>

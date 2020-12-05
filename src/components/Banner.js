@@ -16,7 +16,7 @@ const Banner = () => {
   );
 
   console.log("FETCH DATA STATUS 👉 ", status);
-  console.log("FETCH DATA 👉 ", data);
+  // console.log("FETCH DATA 👉 ", data);
 
   useEffect(
     () =>
